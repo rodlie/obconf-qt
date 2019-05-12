@@ -69,7 +69,7 @@ void MainDialog::theme_load_all() {
     }
   }
 
-  add_theme_dir(THEME_DIR);
+  add_theme_dir(OPENBOX_THEME_DIR);
   themes = g_list_sort(themes, (GCompareFunc) strcasecmp);
   
   themes_model->clear();

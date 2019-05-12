@@ -183,15 +183,15 @@ int main(int argc, char** argv) {
   app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
   // load translations
-  QTranslator qtTranslator, translator;
+  //QTranslator qtTranslator, translator;
 
   // install the translations built-into Qt itself
-  qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-  app.installTranslator(&qtTranslator);
+  //qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+  //app.installTranslator(&qtTranslator);
 
   // install our own tranlations
-  translator.load("obconf-qt_" + QLocale::system().name(), PACKAGE_DATA_DIR "/translations");
-  app.installTranslator(&translator);
+  //translator.load("obconf-qt_" + QLocale::system().name(), PACKAGE_DATA_DIR "/translations");
+  //app.installTranslator(&translator);
 
   // load configurations
 

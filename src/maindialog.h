@@ -25,7 +25,7 @@
 #include <glib.h>
 
 // We include a fixed version rather than the originally generated one.
-#include "ui_obconf_fixed.h"
+#include "ui_obconf.h"
 
 class QStandardItemModel;
 class QItemSelection;
@@ -53,7 +53,7 @@ private:
   void moveresize_setup_tab();
   void margins_setup_tab();
   void desktops_setup_tab();
-  void dock_setup_tab();
+  //void dock_setup_tab();
 
   // theme
   void add_theme_dir(const char* dirname);
@@ -77,7 +77,7 @@ private:
 
 private Q_SLOTS:
 
-  void on_about_clicked();
+  //void on_about_clicked();
 
   // theme
   void onThemeNamesSelectionChanged(const QItemSelection & selected, const QItemSelection & deselected);
@@ -144,7 +144,7 @@ private Q_SLOTS:
   void on_desktop_names_itemChanged(QListWidgetItem * item);
 
   // docks
-  void on_dock_float_x_valueChanged(int newValue);
+  /*void on_dock_float_x_valueChanged(int newValue);
   void on_dock_float_y_valueChanged(int newValue);
   void on_dock_stack_top_toggled(bool checked);
   void on_dock_stack_normal_toggled(bool checked);
@@ -154,7 +154,7 @@ private Q_SLOTS:
   void on_dock_hide_delay_valueChanged(int newValue);
   void on_dock_show_delay_valueChanged(int newValue);
   void on_dock_position_currentIndexChanged(int index);
-  void on_dock_direction_currentIndexChanged(int index);
+  void on_dock_direction_currentIndexChanged(int index);*/
 
 private:
   Ui::MainDialog ui;

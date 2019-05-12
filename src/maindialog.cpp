@@ -29,11 +29,17 @@ using namespace Obconf;
 
 MainDialog::MainDialog():
   QDialog(),
-  themes(NULL),
+  themes(nullptr),
   themes_model(new QStandardItemModel()) {
 
   ui.setupUi(this);
-  setWindowIcon(QIcon(PIXMAPS_DIR "/obconf-qt.png"));
+  //setWindowIcon(QIcon(PIXMAPS_DIR "/obconf-qt.png"));
+
+  QString cTheme = QIcon::themeName();
+  if (cTheme.isEmpty() || cTheme == "hicolor") {
+      QIcon::setThemeName("Adwaita");
+  }
+  setWindowIcon(QIcon::fromTheme("preferences-system-windows"));
 
   // resize the list widget according to the width of its content.
   ui.listWidget->setMaximumWidth(ui.listWidget->sizeHintForColumn(0) + ui.listWidget->frameWidth() * 2 + 2);
@@ -46,17 +52,17 @@ MainDialog::MainDialog():
   moveresize_setup_tab();
   margins_setup_tab();
   desktops_setup_tab();
-  dock_setup_tab();
+  //dock_setup_tab();
 
   // Normally, this is called in ui.setupUi(), but this is not desired behavior.
   // So we edited the generated ui header file with "sed" and generated a fixed version.
   // Then, we need to call it here.
-  QMetaObject::connectSlotsByName(this);
+  //QMetaObject::connectSlotsByName(this);
 }
 
 MainDialog::~MainDialog() {
   if(themes) {
-    g_list_foreach(themes, (GFunc)g_free, NULL);
+    g_list_foreach(themes, (GFunc)g_free, nullptr);
     g_list_free(themes);
   }
   delete themes_model;
@@ -72,7 +78,7 @@ void MainDialog::reject() {
   QDialog::reject();
 }
 
-void MainDialog::on_about_clicked() {
+/*void MainDialog::on_about_clicked() {
   QMessageBox::about(this, tr("About ObConf-Qt"),
                      tr("A preferences manager for Openbox\n\n"
                         "Copyright (c) 2014-2015\n\n"
@@ -83,4 +89,4 @@ void MainDialog::on_about_clicked() {
                         "* Tim Riley <tr@slackzone.org>\n"
                         "* Javeed Shaikh <syscrash2k@gmail.com>")
                     );
-}
+}*/
